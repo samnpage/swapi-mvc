@@ -1,24 +1,27 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using SwapiMvc.Mvc.Models;
+using SwapiMvc.Models;
 
 namespace SwapiMvc.Mvc.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private static Random _random = new Random();
 
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        string [] names = new[] { "Autumn", "Alecx", "Tom", "Kenn", "Paul"};
+        string name = names[_random.Next(0, names.Length)];
+        return View(model: name);
     }
 
-    public IActionResult Privacy()
+    public async Task<IActionResult> Privacy()
     {
         return View();
     }
