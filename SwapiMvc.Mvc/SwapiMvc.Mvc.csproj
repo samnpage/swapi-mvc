@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\SwapiMvc.Services\SwapiMvc.Services.csproj" />
+    <ProjectReference Include="..\SwapiMvc.Models\SwapiMvc.Models.csproj" />
+    <ProjectReference Include="..\SwapiMvc.Data\SwapiMvc.Data.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>
