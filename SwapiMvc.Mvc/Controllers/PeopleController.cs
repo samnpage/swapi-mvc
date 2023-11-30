@@ -21,4 +21,14 @@ public class PeopleController : Controller
 
         return View(people);
     }
+
+    public async Task<IActionResult> Person([FromRoute] string? id)
+    {
+        var response = await _httpClient.GetAsync($"people/{id}");
+        if (id is null || response.IsSuccessStatusCode == false)
+            return RedirectToAction(nameof(Index));
+
+        var person = await response.Content.ReadFromJsonAsync<PeopleViewModel>();
+        return View(person);
+    }
 }
